@@ -2,7 +2,7 @@ require_relative 'lib/jekyll-generate-tags/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-generate-tags"
-  spec.version       = JekyllGenerateTags::VERSION
+  spec.version       = Jekyll::GenerateTags::VERSION
   spec.authors       = ["Pat Migliaccio"]
   spec.email         = ["pat@patmigliaccio.com"]
 

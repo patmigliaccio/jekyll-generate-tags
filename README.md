@@ -16,19 +16,22 @@ Add this line to your project's Gemfile:
 gem 'jekyll-generate-tags'
 ```
 
-And then execute:
+Add the following to your site's _config.yml:
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install jekyll-generate-tags
+```yml
+plugins:
+  - jekyll-generate-tags
+```
 
 ## Usage
+
+Use the following tag to reference a comma-delimited string of tag matches (in order of confidence).
 
 ```md           
 {{ page.generatedtags }}
 ```
+
+_Note: When building the site for the first time, it may take a bit to run through existing posts to generate each set of tags._
 
 ### Custom Labels
 
@@ -38,7 +41,7 @@ _Optional_: Add the following property to the `_config.yml` file to include cust
 tag_options: software engineering,coding,programming languages
 ```
 
-These can also be updated in the `tag_options.txt` file instead.
+These can also be updated in the `tag_options.txt` file within the root of the project or updated inside the gem itself.
 
 ### Confidence
 
@@ -52,22 +55,8 @@ tag_confidence: .30
 
 ## Caching
 
-Includes a caching-mechanism that allows for faster re-builds when content, labels or confidence value doesn't change.
+Includes a caching-mechanism that allows for faster re-builds when the content, labels, or confidence values don't change. The outputted tags are stored in the `.tags-cache` folder. Depending on how your site builds are handled, it probably makes sense to check this folder in to eliminate the need to reprocess each post at time of deployment.
 
 ### Clear Cache
 
 To clear the cache entirely, simply delete the `.tags-cache` folder.
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/patmigliaccio/jekyll-generate-tags.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
